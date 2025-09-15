@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYW Technologies Co., Ltd</title>
+
+  <style>
+    body { 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #fff;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #e60000, #0033cc);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      max-height: 60px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+      display: block;
+      padding: 8px 12px;
+    }
+    nav a:hover {
+      color: yellow;
+    }
+
+    /* Dropdown */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      background: #0033cc;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      border-radius: 4px;
+      padding: 5px 0;
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    nav ul li ul li a {
+      margin: 0;
+      padding: 10px 15px;
+      font-weight: normal;
+      color: #fff;
+    }
+    nav ul li ul li a:hover {
+      background: #e60000;
+      color: #fff;
+    }
+
+    /* Hero */
+    .hero {
+      background: url('https://lcibs.ac.bw/wp-content/uploads/2021/06/eff7fca0-black-lady-bis.jpg') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+    }
+
+    /* Sections */
+    .section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 60px 10%;
+    }
+    .section img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .text h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #b30000;
+    }
+    .text p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #e60000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #800000;
+    }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+      padding: 40px 10%;
+      text-align: center;
+    }
+    .product {
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 15px;
+      background: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .product img {
+      max-width: 100%;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(to right, #0033cc, #e60000);
+      color: #fff;
+      padding: 40px 20px;
+    }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+    .footer-column {
+      flex: 1;
+      margin: 10px;
+      min-width: 250px;
+    }
+    .footer-column h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      padding-bottom: 5px;
+    }
+    .footer-column p, 
+    .footer-column a {
+      color: #f0f0f0;
+      line-height: 1.6;
+      text-decoration: none;
+    }
+
+    /* Social Icons */
+    .social-icons a {
+      display: inline-block;
+      margin: 0 8px;
+      font-size: 20px;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: yellow;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      margin-top: 20px;
+      font-size: 13px;
+      color: #eee;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#">
+      <img src="file:///C:/Users/IT/Documents/Test%20Website/img/logo/Com.jpg" alt="MYW Technologies Co., Ltd Logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li>
+          <a href="#">PRODUCTS & SERVICES</a>
+          <ul>
+            <li><a href="#">Analytical</a></li>
+            <li><a href="#">Didactic</a></li>
+            <li><a href="#">Environmental & Applied Solutions</a></li>
+            <li><a href="#">Labware & Furniture</a></li>
+            <li><a href="#">Applied Electronics</a></li>
+            <li><a href="#">Food & Agriculture</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">KNOWLEDGE</a>
+          <ul>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Brochures & Flyers</a></li>
+          </ul>
+        </li>
+        <li><a href="#">NEWS & EVENTS</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Welcome to MYW Technologies Co., Ltd.</h1>
+      <p>Innovative Solutions for Science, Technology, and Education</p>
+    </div>
+  </div>
+
+  <!-- Sections -->
+  <div class="section">
+    <div><img src="https://www.scimed.co.uk/wp-content/uploads/2023/11/contrAA_004.webp" alt="Elemental Analysis"></div>
+    <div class="text">
+      <h2>Elemental Analysis (AnalytikJena)</h2>
+      <p>Depending on the specifications of products you require, we offer a wide variety of suitable laboratory instruments.</p>
+      <a href="#" class="btn">View Products</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="text">
+      <h2>Infrared, Near Infrared and Raman Spectroscopy</h2>
+      <p>We provide FT-IR Microscopes, Raman Microscopes, FT-NIR Spectrometers, FT-IR Routine Spectrometers, FT-IR Research Spectrometers, Dairy Analyzers, Gas Analysis, and more.</p>
+      <a href="#" class="btn">View Products</a>
+    </div>
+    <div><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/Mascots-Myanmar-analytical-03-600x431-1.jpg" alt="Spectroscopy"></div>
+  </div>
+
+  <div class="section">
+    <div><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/Mascots-Myanmar-catagory-images-01.jpg" alt="Magnetic Resonance"></div>
+    <div class="text">
+      <h2>Magnetic Resonance</h2>
+      <p>We provide NMR, MRI in Pharma, NMR Food Screening, Preclinical MRI, TD-NMR, and specialized analysis software.</p>
+      <a href="#" class="btn">View Products</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="text">
+      <h2>Surface and Dimensional Analysis</h2>
+      <p>We provide atomic force microscopes for materials research, industrial, and life sciences applications.</p>
+      <a href="#" class="btn">View Products</a>
+    </div>
+    <div><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/Mascots-Myanmar-analytical-05.jpg" alt="Surface and Dimensional Analysis"></div>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    <div class="product"><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/02-RP-Mercury-analyser-200x144-1.jpg" alt="Mercury Analysers"><p>Mercury Analysers</p></div>
+    <div class="product"><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/01-RP-elan2-Liquid-Nitrogen-genetrators-200x144-1.jpg" alt="Liquid Nitrogen Generators"><p>Liquid Nitrogen Generators</p></div>
+    <div class="product"><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/03-RP-Edinbudgh-Photo-luminence-200x144-1.jpg" alt="Photoluminescence"><p>Photoluminescence</p></div>
+    <div class="product"><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/04-RP-klab-UV-200x144-1.jpg" alt="UV-Vis Spectrometers"><p>UV-Vis Spectrometers</p></div>
+    <div class="product"><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/05-RP-Omni-Sonic-Ruptor-4000-200x144-1.jpg" alt="Sonic Ruptors"><p>Sonic Ruptors</p></div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>SITEMAP</h3>
+        <p>Home · About · Products & Services · Knowledge · News & Events · Contact</p>
+      </div>
+      <div class="footer-column">
+        <h3>OUR ADDRESS</h3>
+        <p>No (681), Mya Kan Thar Street (2),<br>
+           No-2 Quarter, Kamaryut Township (11041),<br>
+           Yangon, Myanmar.</p>
+        <p>Tel: (95-1) 2317481, 2315821<br>
+           Fax: (95-1) 221035</p>
+        <p>Email: <a href="mail:info@myw.com">info@myw.com</a></p>
+      </div>
+      <div class="footer-column">
+        <h3>FIND US</h3>
+        <!-- Google Map -->
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.134828918032!2d96.129722!3d16.815334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1949db2d3c7d7%3A0x4f81d69d2b77e8!2sKamaryut%20Township%2C%20Yangon!5e0!3m2!1sen!2smm!4v1694600000000!5m2!1sen!2smm" 
+          width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 MYW Technologies Co., Ltd. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- FontAwesome for Social Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

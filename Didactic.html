@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYW Technologies Co., Ltd</title>
+
+  <style>
+    body { 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #fff;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #e60000, #0033cc);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      max-height: 60px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+      padding: 8px 12px;
+    }
+    nav a:hover {
+      color: yellow;
+    }
+
+    /* Hero */
+    .hero {
+      background: url('https://lcibs.ac.bw/wp-content/uploads/2021/06/eff7fca0-black-lady-bis.jpg') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+    }
+
+    /* Sections with Z layout */
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 60px 10%;
+    }
+    .content img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .text h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #b30000;
+    }
+    .text ul {
+      line-height: 1.6;
+    }
+
+    /* Alternate direction for Z design */
+    .content:nth-child(even) {
+      direction: rtl;
+    }
+    .content:nth-child(even) .text {
+      direction: ltr;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(to right, #0033cc, #e60000);
+      color: #fff;
+      padding: 40px 20px;
+    }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+    .footer-column {
+      flex: 1;
+      margin: 10px;
+      min-width: 250px;
+    }
+    .footer-column h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      padding-bottom: 5px;
+    }
+    .footer-column a {
+      color: #f0f0f0;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      margin-top: 20px;
+      font-size: 13px;
+      color: #eee;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .content:nth-child(even) {
+        direction: ltr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#"><img src="file:///C:/Users/IT/Documents/Test%20Website/img/logo/Com.jpg" alt="MYW Technologies Co., Ltd Logo"></a>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">PRODUCTS & SERVICES</a></li>
+        <li><a href="#">KNOWLEDGE</a></li>
+        <li><a href="#">NEWS & EVENTS</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sections with Z Layout -->
+  <div class="content">
+    <div class="text">
+      <h2>Basic Education</h2>
+      <ul>
+        <li><strong>Non-electronic –</strong> Chalkboards, flip boards, slates, photos, telescopes</li>
+        <li><strong>Electronic –</strong> PowerPoint slideshows, videos, AR/VR goggles</li>
+        <li><strong>Auditory –</strong> radios, tape recorders, CD players</li>
+        <li><strong>Visual –</strong> Slides, projectors, digital screens</li>
+        <li><strong>Audiovisual –</strong> YouTube, Ted Talks, documentaries</li>
+        <li><strong>Audiovisual + tactile –</strong> 3D models, plants, field visits</li>
+      </ul>
+    </div>
+    <div><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/01-BasicEdu.jpg" alt="Basic Education"></div>
+  </div>
+
+  <div class="content">
+    <div class="text">
+      <h2>Vocational Education</h2>
+      <ul>
+        <li>Construction/Woodworking</li>
+        <li>Welding</li>
+        <li>Hospitality Training</li>
+        <li>Automotive Repairs</li>
+      </ul>
+    </div>
+    <div><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/02-VocationalEdu.jpg" alt="Vocational Education"></div>
+  </div>
+
+  <div class="content">
+    <div class="text">
+      <h2>Arts and Science</h2>
+      <ul>
+        <li>Physics</li>
+        <li>Chemistry</li>
+        <li>Botany</li>
+        <li>Zoology</li>
+        <li>Industrial Chemistry</li>
+        <li>Geology</li>
+      </ul>
+    </div>
+    <div><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/03-ArtsAndScience.jpg" alt="Arts and Science"></div>
+  </div>
+
+  <div class="content">
+    <div class="text">
+      <h2>Technology</h2>
+      <ul>
+        <li>INDUSTRY 4.0</li>
+        <li>Mechanics</li>
+        <li>Electronics</li>
+        <li>Civil Engineering</li>
+        <li>Automation</li>
+        <li>Renewable Energy</li>
+        <li>Biomedical Engineering</li>
+      </ul>
+    </div>
+    <div><img src="https://mascotstechnologies.com/wp-content/uploads/2023/06/04-Technology.jpg" alt="Technology"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>SITEMAP</h3>
+        <p>Home · About · Products & Services · Knowledge · News & Events · Contact</p>
+      </div>
+      <div class="footer-column">
+        <h3>OUR ADDRESS</h3>
+        <p>No (681), Mya Kan Thar Street (2),<br>
+           No-2 Quarter, Kamaryut Township,<br>
+           Yangon, Myanmar.</p>
+        <p>Tel: (95-1) 2317481, 2315821<br>
+           Fax: (95-1) 221035</p>
+        <p>Email: <a href="mailto:info@myw.com">info@myw.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 MYW Technologies Co., Ltd. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
